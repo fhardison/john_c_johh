@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+cat $1 | fabric -s -p fix_greek_ocr -m claude-3-5-sonnet-20240620 -c
