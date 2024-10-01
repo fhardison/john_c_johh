@@ -29,5 +29,5 @@ for f in SRC.glob('*.md'):
     homilies.append(n)
     call_command(f"pandoc -f markdown -t html -o {TGT / Path(n)} {f} --template template.html")
 
-links = [f'<a href="./{x}">{x.replace(".html", "").replace("_", " ")}' for x in homilies]
+links = [f'<li><a href="./{x}">{x.replace(".html", "").replace("_", " ")}</a></li>' for x in homilies]
 Path(TGT / Path('index.html')).write_text(INDEX.read_text().replace('$body$', '\n'.join(links)))
